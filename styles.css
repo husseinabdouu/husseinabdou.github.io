@@ -1,0 +1,62 @@
+:root {
+  --bg: #0b0d0b;
+  --panel: #0f110f;
+  --glow: #1dd75f;
+  --text: #bdf5d1;
+  --muted: #78c694;
+  --rule: #173a22;
+  --shadow: rgba(0,0,0,.45);
+  --maxw: 880px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; background: radial-gradient(1200px 800px at 50% -10%, #0f170f, #0a0b0a), var(--bg); }
+body { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; color: var(--text); }
+
+.frame {
+  max-width: var(--maxw);
+  margin: 48px auto;
+  background: var(--panel);
+  border: 2px solid var(--rule);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px var(--shadow), 0 0 0 1px #0c140c inset;
+  overflow: hidden;
+  position: relative;
+}
+
+.frame__bar {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  background: linear-gradient(#0f120f,#0b0d0b);
+}
+
+.dots { display:flex; gap:8px; }
+.dot { width:12px; height:12px; border-radius:50%; display:inline-block; box-shadow: 0 0 6px rgba(0,0,0,.5) inset; }
+.red { background:#ff5f57; }
+.yellow { background:#ffbd2e; }
+.green { background:#28c840; }
+.spacer { flex: 1 1 auto; }
+.links a { color: var(--muted); text-decoration:none; }
+.links a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+.content { padding: 28px 26px 34px; }
+h1 { font-size: 28px; margin: 0 0 10px; color: var(--glow); text-shadow: 0 0 8px rgba(29,215,95,.25); }
+.lead { color: var(--text); margin: 0 0 18px; }
+h2 { margin: 20px 0 8px; font-size: 16px; color: var(--glow); }
+.bullets { margin: 0; padding-left: 18px; }
+.bullets li { margin: 6px 0; color: var(--text); }
+strong { color: #d2ffe3; }
+.caret { color: var(--glow); margin-right: 6px; }
+
+.frame::after {
+  content:'';
+  pointer-events:none;
+  position:absolute;
+  inset:0;
+  background-image: repeating-linear-gradient(to bottom, rgba(255,255,255,0.02), rgba(255,255,255,0.02) 2px, transparent 2px, transparent 4px);
+  border-radius: 18px;
+  mix-blend-mode: overlay;
+  opacity: .25;
+}
